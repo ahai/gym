@@ -8,7 +8,7 @@ public class StudentController {
 
     @RequestMapping (path="api/v1/students")
     public String getStudent(){
-        return "hello, i am richard";
+        return "hello, i am richard, again";
     }
     
 }
