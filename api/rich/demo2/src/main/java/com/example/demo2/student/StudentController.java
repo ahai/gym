@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentController {
 
-    @RequestMapping1 (path="api/v1/students")
+    @RequestMapping (path="api/v1/students")
     public String getStudent(){
         return "hello, i am richard, again";
     }
