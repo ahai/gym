@@ -1,6 +1,7 @@
 package com.example.demo1;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,13 +51,15 @@ public class Student {
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
+
+	//@Transient
 	public Integer getAge() {
-		return age;
+		return Period.between(this.dob, LocalDate.now()).getYears();
 	}
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	
+
 	
 	@Override
 	public String toString() {
@@ -73,7 +76,6 @@ public class Student {
 		this.name = name;
 		this.email = email;
 		this.dob = dob;
-		this.age = age;
 	}
 
 	public Student( String name, String email, LocalDate dob, Integer age) {
@@ -82,7 +84,6 @@ public class Student {
 		this.name = name;
 		this.email = email;
 		this.dob = dob;
-		this.age = age;
 	}
 
 
