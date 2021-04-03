@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Service
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 public class AppUserService implements UserDetailsService{
     
