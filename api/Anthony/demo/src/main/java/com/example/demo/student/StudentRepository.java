@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo1.Quary;
-import com.example.demo1.Student;
+import com.example.demo.student.Quary;
+import com.example.demo.student.Student;
 
 @Repository
 public interface StudentRepository 

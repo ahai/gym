@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.demo1.Student;
-import com.example.demo1.StudentRepository;
+import com.example.demo.student.Student;
+import com.example.demo.student.StudentRepository;
 
 @Service
 public class StudentService {
