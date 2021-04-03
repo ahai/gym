@@ -1,0 +1,19 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password:
+    url: jbdc:mysql://localhost:5432/registration
+    username:
+  jpa:
+    hibernate:
+      ddl:autp: create-drop
+    properties:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLDialect
+      format_sql: true
+    show-sql: true
+
