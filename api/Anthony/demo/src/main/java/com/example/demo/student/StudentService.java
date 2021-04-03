@@ -21,6 +21,11 @@ public class StudentService {
         return studentRepository.findAll();
 
     }
+
+	public void addNewStudent(Student student) {
+		// TODO Auto-generated method stub
+		System.out.println(student); 
+	}
 }
 
 
