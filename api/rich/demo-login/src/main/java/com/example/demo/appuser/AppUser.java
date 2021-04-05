@@ -16,25 +16,19 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
+@Getter
+@Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
 
-<<<<<<< HEAD
-		
-	@SequenceGenerator(
-			name = "student_sequence",
-			sequenceName = "student_sequence",
-			allocationSize = 1
-			
-    )
-=======
 public class AppUser implements UserDetails {
 	
->>>>>>> cb6eda40e85a8c2b5a31f62b7db489abd604ff42
 	
 	@Id
 	@SequenceGenerator(
@@ -47,42 +41,12 @@ public class AppUser implements UserDetails {
 		generator = "student_sequence"
 
 	)
-<<<<<<< HEAD
-	
-	private Long id;  
-=======
 
 	private Long id;
->>>>>>> cb6eda40e85a8c2b5a31f62b7db489abd604ff42
 	private String name;
 	private String username;
 	private String email;
 	private String password;
-<<<<<<< HEAD
-	
-	@Enumerated(EnumType.STRING)
-    private AppUserRole appUserRole;
-    private Boolean locked;
-    private Boolean enabled;
-
-    public AppUser(String name, String username, String email, AppUserRole appUserRole, Boolean locked,
-			Boolean enabled, String password) {
-		
-		this.name = name;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.appUserRole = appUserRole;
-		this.locked = locked;
-		this.enabled = enabled;
-	}
-    
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority =
-         new SimpleGrantedAuthority(appUserRole.name());
-		return Collections.singletonList(authority);
-=======
 
 	@Enumerated(EnumType.STRING)
 	private AppUserRole appUserRole;
@@ -99,7 +63,6 @@ public class AppUser implements UserDetails {
 			new SimpleGrantedAuthority(appUserRole.name());
 		
 		return Collections.singleton(authority);
->>>>>>> cb6eda40e85a8c2b5a31f62b7db489abd604ff42
 	}
 
 	@Override
