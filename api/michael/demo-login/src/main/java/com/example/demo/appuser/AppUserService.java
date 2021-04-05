@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+
 @Service
-//@AllArgsConstructor
-@NoArgsConstructor
 public class AppUserService implements UserDetailsService{
     
 	private final static String USER_NOT_FOUND_MSG =
@@ -18,9 +17,13 @@ public class AppUserService implements UserDetailsService{
 	
 	private final AppUserRepository appUserRepository;
 	
+	
+
 	public AppUserService(AppUserRepository appUserRepository) {
+		super();
 		this.appUserRepository = appUserRepository;
 	}
+
 
 	@Override
 	public UserDetails loadUserByUsername(String email) 
