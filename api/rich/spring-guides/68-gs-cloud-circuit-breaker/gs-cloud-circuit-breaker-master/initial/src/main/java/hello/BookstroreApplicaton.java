@@ -17,8 +17,6 @@ public class BookstoreApplication {
   }
 
   public static void main(String[] args) {
-	  
-	System.out.println("\n\n\n Richard: this is books store app.");
     SpringApplication.run(BookstoreApplication.class, args);
   }
 }

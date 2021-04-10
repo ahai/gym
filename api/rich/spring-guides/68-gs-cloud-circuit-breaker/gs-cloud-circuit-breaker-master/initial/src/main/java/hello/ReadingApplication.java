@@ -6,19 +6,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @RestController
 @SpringBootApplication
-public class BookstoreApplication {
+public class ReadingApplication {
 
-  @RequestMapping(value = "/recommended")
-  public Mono<String> readingList(){
-    return Mono.just("Spring in Action (Manning), Cloud Native Java (O'Reilly), Learning Spring Boot (Packt)");
+  @RequestMapping("/to-read")
+    public Mono<String> toRead() {
+      return WebClient.builder().build()
+      .get().uri("http://localhost:8090/recommended").retrieve()
+      .bodyToMono(String.class);
   }
 
   public static void main(String[] args) {
-	  
-	System.out.println("\n\n\n Richard: this is books store app.");
-    SpringApplication.run(BookstoreApplication.class, args);
+    SpringApplication.run(ReadingApplication.class, args);
   }
 }
