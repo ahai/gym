@@ -28,4 +28,8 @@ public class Person implements Serializable {
 	public String toString() {
 		return String.format("%s is %d years old", getName(), getAge());
 	}
+
+	private Object getName() {
+		return null;
+	}
 }
