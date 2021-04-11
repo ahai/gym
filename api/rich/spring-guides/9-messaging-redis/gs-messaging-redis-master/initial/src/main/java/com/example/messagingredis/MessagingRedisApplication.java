@@ -10,5 +10,4 @@ public class MessagingRedisApplication {
 		SpringApplication.run(MessagingRedisApplication.class, args);
 	}
 	
-
 }
