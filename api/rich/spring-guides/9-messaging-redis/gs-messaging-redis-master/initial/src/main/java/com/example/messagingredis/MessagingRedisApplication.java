@@ -9,5 +9,6 @@ public class MessagingRedisApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MessagingRedisApplication.class, args);
 	}
+	
 
 }
