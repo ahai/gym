@@ -5,14 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.2.RELEASE</version>
-		<!-- lookup parent from repository -->
-		<relativePath/>
+		<version>2.4.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>consuming-web-service</artifactId>
+	<artifactId>producing-web-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>consuming-web-service</name>
+	<name>producing-web-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -22,35 +21,26 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- tag::dependency[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
-		<!-- end::dependency[] -->
-
+		<!-- tag::springws[] -->
 		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+		</dependency>
+		<!-- end::springws[] -->
+
+    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 
-	<!-- tag::profile[] -->
 	<profiles>
 		<profile>
 			<id>java11</id>
@@ -66,7 +56,6 @@
 			</dependencies>
 		</profile>
 	</profiles>
-	<!-- end::profile[] -->
 
 	<build>
 		<plugins>
@@ -74,29 +63,26 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- tag::wsdl[] -->
+			<!-- tag::xsd[] -->
 			<plugin>
-					<groupId>org.jvnet.jaxb2.maven2</groupId>
-					<artifactId>maven-jaxb2-plugin</artifactId>
-					<version>0.14.0</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>generate</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<schemaLanguage>WSDL</schemaLanguage>
-						<generatePackage>com.example.consumingwebservice.wsdl</generatePackage>
-						<schemas>
-							<schema>
-								<url>http://localhost:8080/ws/countries.wsdl</url>
-							</schema>
-						</schemas>
-					</configuration>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.5.0</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<sources>
+						<source>${project.basedir}/src/main/resources/countries.xsd</source>
+					</sources>
+				</configuration>
 			</plugin>
-			<!-- end::wsdl[] -->
+			<!-- end::xsd[] -->
 		</plugins>
 	</build>
 
