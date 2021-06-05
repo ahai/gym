@@ -1,3 +1,7 @@
 security:
-  ignored:
-  - "*.bundle.*"
+  sessions: NEVER
+  zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: http://localhost:9000
